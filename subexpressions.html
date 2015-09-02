@@ -1,0 +1,39 @@
+<head>
+  <title>subexpressions</title>
+</head>
+
+<body>
+  <h1>Subexpressions Demo</h1>
+
+  {{> dollarDemo}}
+  {{> helpfulDemo thing='bla'}}
+  {{> allTheThings}}
+
+  <a href="https://quip.com/RXFlAk9Rc2xI">Meteor 1.2 Upgrade Guide</a>
+</body>
+
+<template name="dollarDemo">
+  <h3>Meteor costs: {{usd (cents 0)}}</h3>
+</template>
+
+<template name="helpfulDemo">
+  <h3>Subexpressions are so {{shout (suffixer (capitalize (shush 'HELP')) 'ful')}}</h3>
+</template>
+
+<template name="allTheThings">
+  <h3>New 'each in' Syntax:</h3>
+
+  <h4>Pre-1.2</h4>
+  <ul>
+    {{#each things}}
+      <li>Thing {{this}}</li>
+    {{/each}}
+  </ul>
+
+  <h4>Available as of 1.2</h4>
+  <ul>
+    {{#each thing in things}}
+      <li>Thing {{thing}}</li>
+    {{/each}}
+  </ul>
+</template>
